@@ -1,0 +1,5 @@
+-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\APP -I..\PlatForm -I..\..\StartUp -I..\..\Library\Include -I..\..\CMSIS --bitband 
+-I C:\Keil_v4\ARM\RV31\INC 
+-I C:\Keil_v4\ARM\CMSIS\Include 
+-I C:\Keil_v4\ARM\Inc\HR 
+-o "..\..\output\ht1632c.o" --depend "..\..\output\ht1632c.d" "..\..\SRC\ht1632c.c"

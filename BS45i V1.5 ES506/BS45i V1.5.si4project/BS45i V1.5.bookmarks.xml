@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceInsightBookmarks
+	AppVer="4.00.0084"
+	AppVerMinReader="4.00.0009"
+	>
+	<Bookmarks>
+		<Mark
+			Name="6702221752327022119102"
+			Comment="1"
+			File="SRC\Key.c"
+			Line="324"
+			Column="3"
+			Symbol="KeyLight"
+			SymbolInstance="0"
+			SymbolType="Function"
+			LineOffset="38"
+			/>
+	</Bookmarks>
+</SourceInsightBookmarks>

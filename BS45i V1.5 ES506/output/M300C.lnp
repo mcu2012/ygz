@@ -1,0 +1,5 @@
+--cpu Cortex-M0 ".\output\startup_hr8p506.o" ".\output\system_hr8p506.o" ".\output\hr8p506_iap_table.o" ".\output\lib_adc.o" ".\output\lib_euart.o" ".\output\lib_gpio.o" ".\output\lib_iic.o" ".\output\lib_lcd.o" ".\output\lib_led.o" ".\output\lib_printf.o" ".\output\lib_rtc.o" ".\output\lib_scs.o" ".\output\lib_scu.o" ".\output\lib_spi.o" ".\output\lib_timer.o" ".\output\lib_uart.o" ".\output\lib_wdt.o" ".\output\adc.o" ".\output\buzz.o" ".\output\commiic.o" ".\output\dcmotordrv.o" ".\output\display.o" ".\output\fandrv.o" ".\output\filter.o" ".\output\irqhandler.o" ".\output\key.o" ".\output\log.o" ".\output\main.o" ".\output\mywifi.o" ".\output\pm25uart1.o" ".\output\rgb.o" ".\output\smell.o" ".\output\test.o" ".\output\timer.o" ".\output\uart0.o" ".\output\uart1.o" ".\output\mcu_api.o" ".\output\protocol.o" ".\output\system.o" 
+--library_type=microlib --strict --scatter ".\output\M300C.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\M300C.map" -o .\output\M300C.axf

@@ -1,0 +1,5 @@
+--cpu Cortex-M0 ".\output\startup_hr8p506.o" ".\output\system_hr8p506.o" ".\output\hr8p506_iap_table.o" ".\output\lib_adc.o" ".\output\lib_euart.o" ".\output\lib_gpio.o" ".\output\lib_iic.o" ".\output\lib_lcd.o" ".\output\lib_led.o" ".\output\lib_printf.o" ".\output\lib_rtc.o" ".\output\lib_scs.o" ".\output\lib_scu.o" ".\output\lib_spi.o" ".\output\lib_timer.o" ".\output\lib_uart.o" ".\output\lib_wdt.o" ".\output\buzzer.o" ".\output\dcmotordrv.o" ".\output\drv_disp.o" ".\output\filter.o" ".\output\key.o" ".\output\led.o" ".\output\main.o" ".\output\mcudrv.o" ".\output\mode.o" ".\output\pm25.o" ".\output\remote.o" ".\output\rgb.o" ".\output\test.o" ".\output\timer.o" ".\output\mcu_api.o" ".\output\protocol.o" ".\output\system.o" ".\output\irqhandler.o" ".\output\disp_air.o" ".\output\i2c.o" ".\output\fandrv.o" ".\output\adc.o" ".\output\mywifi.o" 
+--library_type=microlib --strict --scatter ".\output\BS45i.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\BS45i.map" -o .\output\BS45i.axf

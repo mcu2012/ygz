@@ -1,0 +1,11 @@
+.\output\lib_printf.o: Library\Source\lib_printf.c
+.\output\lib_printf.o: .\Library\Include\lib_printf.h
+.\output\lib_printf.o: .\Library\Include\lib_uart.h
+.\output\lib_printf.o: .\CMSIS\HR8P506.h
+.\output\lib_printf.o: .\CMSIS\core_cm0.h
+.\output\lib_printf.o: C:\Keil_v4\ARM\ARMCC\bin\..\include\stdint.h
+.\output\lib_printf.o: .\CMSIS\core_cmInstr.h
+.\output\lib_printf.o: .\CMSIS\core_cmFunc.h
+.\output\lib_printf.o: .\Library\Include\type.h
+.\output\lib_printf.o: C:\Keil_v4\ARM\ARMCC\bin\..\include\stdio.h
+.\output\lib_printf.o: C:\Keil_v4\ARM\ARMCC\bin\..\include\stdarg.h

@@ -1,0 +1,9 @@
+.\output\lib_iic.o: Library\Source\lib_iic.c
+.\output\lib_iic.o: .\Library\Include\lib_iic.h
+.\output\lib_iic.o: .\CMSIS\HR8P506.h
+.\output\lib_iic.o: .\CMSIS\core_cm0.h
+.\output\lib_iic.o: C:\Keil_v4\ARM\ARMCC\bin\..\include\stdint.h
+.\output\lib_iic.o: .\CMSIS\core_cmInstr.h
+.\output\lib_iic.o: .\CMSIS\core_cmFunc.h
+.\output\lib_iic.o: .\Library\Include\type.h
+.\output\lib_iic.o: .\CMSIS\system_hr8p506.h

@@ -1,0 +1,5 @@
+-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I.\MDK_StartUp -I.\Library\Include -I.\CMSIS -I.\SRC --bitband 
+-I C:\Keil_v4\ARM\RV31\INC 
+-I C:\Keil_v4\ARM\CMSIS\Include 
+-I C:\Keil_v4\ARM\Inc\HR 
+-o ".\output\pm25uart1.o" --omf_browse ".\output\pm25uart1.crf" --depend ".\output\pm25uart1.d" "SRC\PM25Uart1.c"

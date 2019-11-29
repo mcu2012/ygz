@@ -1,0 +1,16 @@
+.\output\protocol.o: SRC\mcu_sdk\protocol.c
+.\output\protocol.o: SRC\mcu_sdk\wifi.h
+.\output\protocol.o: SRC\mcu_sdk\protocol.h
+.\output\protocol.o: SRC\mcu_sdk\system.h
+.\output\protocol.o: SRC\mcu_sdk\mcu_api.h
+.\output\protocol.o: SRC\mcu_sdk\..\buzzer.h
+.\output\protocol.o: SRC\mcu_sdk\..\main.h
+.\output\protocol.o: SRC\mcu_sdk\..\struct.h
+.\output\protocol.o: SRC\mcu_sdk\..\pm25.h
+.\output\protocol.o: .\SRC\Test.h
+.\output\protocol.o: .\SRC\key.h
+.\output\protocol.o: .\SRC\mywifi.h
+.\output\protocol.o: .\SRC\filter.h
+.\output\protocol.o: SRC\mcu_sdk\..\McuDrv.h
+.\output\protocol.o: SRC\mcu_sdk\..\DCMotorDrv.h
+.\output\protocol.o: .\SRC\Mode.h

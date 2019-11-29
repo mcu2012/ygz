@@ -1,0 +1,971 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;*******************************************************
+                       ************************
+    2 00000000         ; *file       : startup_HR8P506.s
+    3 00000000         ; *description: HR8P506 Device Startup File
+    4 00000000         ; *author     : Eastsoft MCU Software Team
+    5 00000000         ; *version    : V0.01
+    6 00000000         ; *data       : 1/28/2016
+    7 00000000         ;
+    8 00000000         ; *Copyright (C) 2016 Shanghai Eastsoft Microelectronics
+                        Co., Ltd.
+    9 00000000         ; *
+   10 00000000         ; * THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, W
+                       HETHER EXPRESS, IMPLIED
+   11 00000000         ; * OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED
+                        WARRANTIES OF
+   12 00000000         ; * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+                        APPLY TO THIS SOFTWARE.
+   13 00000000         ; * ARM SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR S
+                       PECIAL, INCIDENTAL, OR
+   14 00000000         ; * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+   15 00000000         ;*******************************************************
+                       ************************
+   16 00000000         
+   17 00000000         
+   18 00000000         ; <h> Stack Configuration
+   19 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   20 00000000         ; </h>
+   21 00000000         
+   22 00000000 00000400 
+                       Stack_Size
+                               EQU              0x00000400
+   23 00000000         
+   24 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
+=3
+   25 00000000         Stack_Mem
+                               SPACE            Stack_Size
+   26 00000400         __initial_sp
+   27 00000400         
+   28 00000400         
+   29 00000400         ; <h> Heap Configuration
+   30 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   31 00000400         ; </h>
+   32 00000400         
+   33 00000400 00000000 
+                       Heap_Size
+                               EQU              0x00000000
+   34 00000400         
+   35 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+3
+   36 00000000         __heap_base
+   37 00000000         Heap_Mem
+                               SPACE            Heap_Size
+   38 00000000         __heap_limit
+   39 00000000         
+   40 00000000                 PRESERVE8
+   41 00000000                 THUMB
+   42 00000000         
+   43 00000000         ; Vector Table Mapped to Address 0 at Reset
+   44 00000000         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   45 00000000                 AREA             RESET, DATA, READONLY
+   46 00000000                 EXPORT           __Vectors
+   47 00000000         
+   48 00000000 00000000 
+                       __Vectors
+                               DCD              __initial_sp ; Top of Stack
+   49 00000004 00000000        DCD              Reset_IRQHandler 
+                                                            ; Reset Handler
+   50 00000008 00000000        DCD              NMI_IRQHandler ; NMI Handler
+   51 0000000C 00000000        DCD              HardFault_IRQHandler 
+                                                            ; HardFault Handler
+                                                            
+   52 00000010 00000000        DCD              0           ; Reserved
+   53 00000014 00000000        DCD              0           ; Reserved
+   54 00000018 00000000        DCD              0           ; Reserved
+   55 0000001C 00000000        DCD              0           ; Reserved
+   56 00000020 00000000        DCD              0           ; Reserved
+   57 00000024 00000000        DCD              0           ; Reserved
+   58 00000028 00000000        DCD              0           ; Reserved
+   59 0000002C 00000000        DCD              SVC_IRQHandler ; SVCall Handler
+                                                            
+   60 00000030 00000000        DCD              0           ; Reserved
+   61 00000034 00000000        DCD              0           ; Reserved
+   62 00000038 00000000        DCD              PendSV_IRQHandler 
+                                                            ; PendSV Handler
+   63 0000003C 00000000        DCD              SysTick_IRQHandler 
+                                                            ; SysTick Handler
+   64 00000040         
+   65 00000040         ; External Interrupts
+   66 00000040 00000000        DCD              PINT0_IRQHandler ;16, PINT0 IRQ
+                                                            Handler
+   67 00000044 00000000        DCD              PINT1_IRQHandler ;17, PINT1 IRQ
+                                                            Handler
+   68 00000048 00000000        DCD              PINT2_IRQHandler ;18, PINT2 IRQ
+                                                            Handler
+   69 0000004C 00000000        DCD              PINT3_IRQHandler ;19, PINT3 IRQ
+                                                            Handler
+   70 00000050 00000000        DCD              PINT4_IRQHandler ;20, PINT4 IRQ
+                                                            Handler
+   71 00000054 00000000        DCD              PINT5_IRQHandler ;21, PINT5 IRQ
+                                                            Handler
+   72 00000058 00000000        DCD              PINT6_IRQHandler ;22, PINT6 IRQ
+                                                            Handler
+   73 0000005C 00000000        DCD              PINT7_IRQHandler ;23, PINT7 IRQ
+                                                            Handler
+   74 00000060 00000000        DCD              T16N0_IRQHandler ;24, T16N0 IRQ
+                                                            Handler
+   75 00000064 00000000        DCD              T16N1_IRQHandler ;25, T16N1 IRQ
+                                                            Handler
+   76 00000068 00000000        DCD              T16N2_IRQHandler ;26, T16N2 IRQ
+                                                            Handler
+   77 0000006C 00000000        DCD              T16N3_IRQHandler ;27, T16N3 IRQ
+                                                            Handler
+   78 00000070 00000000        DCD              T32N0_IRQHandler ;28, T32N0 IRQ
+                                                            Handler
+   79 00000074 00000000        DCD              0           ;29, Reserved
+   80 00000078 00000000        DCD              0           ;30, Reserved
+   81 0000007C 00000000        DCD              0           ;31, Reserved
+   82 00000080 00000000        DCD              WDT_IRQHandler 
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+                                                            ;32, WDT IRQHandler
+                                                            
+   83 00000084 00000000        DCD              RTC_IRQHandler 
+                                                            ;33, RTC IRQHandler
+                                                            
+   84 00000088 00000000        DCD              KINT_IRQHandler ;34, KINT IRQHa
+                                                            ndler
+   85 0000008C 00000000        DCD              ADC_IRQHandler 
+                                                            ;35, ADC IRQHandler
+                                                            
+   86 00000090 00000000        DCD              0           ;36, Reserved
+   87 00000094 00000000        DCD              LVD_IRQHandler 
+                                                            ;37, LVD IRQHandler
+                                                            
+   88 00000098 00000000        DCD              PLLLK_IRQHandler ;38, PLLLK IRQ
+                                                            Handler
+   89 0000009C 00000000        DCD              UART0_IRQHandler ;39, UART0 IRQ
+                                                            Handler
+   90 000000A0 00000000        DCD              UART1_IRQHandler ;40, UART1 IRQ
+                                                            Handler
+   91 000000A4 00000000        DCD              EUART0_IRQHandler ;41, EUART0 I
+                                                            RQHandler
+   92 000000A8 00000000        DCD              0           ;42, Reserved
+   93 000000AC 00000000        DCD              SPI0_IRQHandler ;43, SPI0 IRQHa
+                                                            ndler
+   94 000000B0 00000000        DCD              SPI1_IRQHandler ;44, SPI1 IRQHa
+                                                            ndler
+   95 000000B4 00000000        DCD              I2C0_IRQHandler ;45, I2C0 IRQHa
+                                                            ndler
+   96 000000B8 00000000        DCD              0           ;46, Reserved
+   97 000000BC 00000000        DCD              CCM_IRQHandler 
+                                                            ;47, CCM IRQHandler
+                                                            
+   98 000000C0         
+   99 000000C0                 AREA             |.text|, CODE, READONLY
+  100 00000000         
+  101 00000000         ; Reset Handler
+  102 00000000         
+  103 00000000         Reset_IRQHandler
+                               PROC
+  104 00000000                 EXPORT           Reset_IRQHandler             [W
+EAK]
+  105 00000000                 IMPORT           __main
+  106 00000000                 IMPORT           SystemInit
+  107 00000000 4805            LDR              R0, =RegInit
+  108 00000002 4780            BLX              R0
+  109 00000004 4805            LDR              R0, =SystemInit
+  110 00000006 4780            BLX              R0
+  111 00000008 4805            LDR              R0, =__main
+  112 0000000A 4700            BX               R0
+  113 0000000C                 ENDP
+  114 0000000C         
+  115 0000000C         ; Dummy Exception IRQHandlers (infinite loops which can 
+                       be modified)
+  116 0000000C         
+  117 0000000C         NMI_IRQHandler
+                               PROC
+  118 0000000C                 EXPORT           NMI_IRQHandler               [W
+EAK]
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+  119 0000000C E7FE            B                .
+  120 0000000E                 ENDP
+  121 0000000E         HardFault_IRQHandler
+                               PROC
+  122 0000000E                 EXPORT           HardFault_IRQHandler         [W
+EAK]
+  123 0000000E E7FE            B                .
+  124 00000010                 ENDP
+  125 00000010         SVC_IRQHandler
+                               PROC
+  126 00000010                 EXPORT           SVC_IRQHandler               [W
+EAK]
+  127 00000010 E7FE            B                .
+  128 00000012                 ENDP
+  129 00000012         PendSV_IRQHandler
+                               PROC
+  130 00000012                 EXPORT           PendSV_IRQHandler            [W
+EAK]
+  131 00000012 E7FE            B                .
+  132 00000014                 ENDP
+  133 00000014         SysTick_IRQHandler
+                               PROC
+  134 00000014                 EXPORT           SysTick_IRQHandler           [W
+EAK]
+  135 00000014 E7FE            B                .
+  136 00000016                 ENDP
+  137 00000016         
+  138 00000016         Default_IRQHandler
+                               PROC
+  139 00000016                 EXPORT           PINT0_IRQHandler    [WEAK]
+  140 00000016                 EXPORT           PINT1_IRQHandler    [WEAK]
+  141 00000016                 EXPORT           PINT2_IRQHandler    [WEAK]
+  142 00000016                 EXPORT           PINT3_IRQHandler    [WEAK]
+  143 00000016                 EXPORT           PINT4_IRQHandler    [WEAK]
+  144 00000016                 EXPORT           PINT5_IRQHandler    [WEAK]
+  145 00000016                 EXPORT           PINT6_IRQHandler    [WEAK]
+  146 00000016                 EXPORT           PINT7_IRQHandler    [WEAK]
+  147 00000016                 EXPORT           T16N0_IRQHandler    [WEAK]
+  148 00000016                 EXPORT           T16N1_IRQHandler    [WEAK]
+  149 00000016                 EXPORT           T16N2_IRQHandler    [WEAK]
+  150 00000016                 EXPORT           T16N3_IRQHandler    [WEAK]
+  151 00000016                 EXPORT           T32N0_IRQHandler    [WEAK]
+  152 00000016                 EXPORT           WDT_IRQHandler      [WEAK]
+  153 00000016                 EXPORT           RTC_IRQHandler      [WEAK]
+  154 00000016                 EXPORT           KINT_IRQHandler     [WEAK]
+  155 00000016                 EXPORT           ADC_IRQHandler      [WEAK]
+  156 00000016                 EXPORT           LVD_IRQHandler      [WEAK]
+  157 00000016                 EXPORT           PLLLK_IRQHandler    [WEAK]
+  158 00000016                 EXPORT           UART0_IRQHandler    [WEAK]
+  159 00000016                 EXPORT           UART1_IRQHandler    [WEAK]
+  160 00000016                 EXPORT           EUART0_IRQHandler   [WEAK]
+  161 00000016                 EXPORT           SPI0_IRQHandler     [WEAK]
+  162 00000016                 EXPORT           SPI1_IRQHandler     [WEAK]
+  163 00000016                 EXPORT           I2C0_IRQHandler     [WEAK]
+  164 00000016                 EXPORT           CCM_IRQHandler      [WEAK]
+  165 00000016         
+  166 00000016         PINT0_IRQHandler
+  167 00000016         PINT1_IRQHandler
+  168 00000016         PINT2_IRQHandler
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+  169 00000016         PINT3_IRQHandler
+  170 00000016         PINT4_IRQHandler
+  171 00000016         PINT5_IRQHandler
+  172 00000016         PINT6_IRQHandler
+  173 00000016         PINT7_IRQHandler
+  174 00000016         T16N0_IRQHandler
+  175 00000016         T16N1_IRQHandler
+  176 00000016         T16N2_IRQHandler
+  177 00000016         T16N3_IRQHandler
+  178 00000016         T32N0_IRQHandler
+  179 00000016         WDT_IRQHandler
+  180 00000016         RTC_IRQHandler
+  181 00000016         KINT_IRQHandler
+  182 00000016         ADC_IRQHandler
+  183 00000016         LVD_IRQHandler
+  184 00000016         PLLLK_IRQHandler
+  185 00000016         UART0_IRQHandler
+  186 00000016         UART1_IRQHandler
+  187 00000016         EUART0_IRQHandler
+  188 00000016         SPI0_IRQHandler
+  189 00000016         SPI1_IRQHandler
+  190 00000016         I2C0_IRQHandler
+  191 00000016         CCM_IRQHandler
+  192 00000016         
+  193 00000016 E7FE            B                .
+  194 00000018         
+  195 00000018                 ENDP
+  196 00000018         
+  197 00000018         
+  198 00000018         ;calibration value initial
+  199 00000018         
+  200 00000018 00000000 
+              00000000 
+              00000000         AREA             |.text|, CODE, READONLY
+  201 00000024                 EXPORT           RegInit
+  202 00000024         
+  203 00000024         RegInit PROC
+  204 00000024 B500            PUSH             {LR}
+  205 00000026 BF00            NOP
+  206 00000028 BF00            NOP
+  207 0000002A BF00            NOP
+  208 0000002C BF00            NOP
+  209 0000002E BF00            NOP
+  210 00000030         
+  211 00000030 4819            LDR              R0, =0x40000080
+  212 00000032 491A            LDR              R1, =0xAA559669
+  213 00000034 6001            STR              R1, [R0]
+  214 00000036         
+  215 00000036 481A            LDR              R0, =0x00100124
+  216 00000038 4F1A            LDR              R7, =0x400000A4
+  217 0000003A F000 F810       BL               IP_CAL_LOAD
+  218 0000003E         
+  219 0000003E 481A            LDR              R0, =0x00100128
+  220 00000040 4F1A            LDR              R7, =0x400000A8
+  221 00000042 F000 F80C       BL               IP_CAL_LOAD
+  222 00000046         
+  223 00000046 481A            LDR              R0, =0x0010012C
+  224 00000048 4F1A            LDR              R7, =0x4000009C
+  225 0000004A F000 F808       BL               IP_CAL_LOAD
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+  226 0000004E         
+  227 0000004E 481A            LDR              R0, =0x00100130
+  228 00000050 4F1A            LDR              R7, =0x400000A0
+  229 00000052 F000 F804       BL               IP_CAL_LOAD
+  230 00000056         
+  231 00000056 4810            LDR              R0, =0x40000080
+  232 00000058 4919            LDR              R1, =0x00000000
+  233 0000005A 6001            STR              R1, [R0]
+  234 0000005C         
+  235 0000005C BD00            POP              {PC}
+  236 0000005E         
+  237 0000005E         
+  238 0000005E         IP_CAL_LOAD
+  239 0000005E B500            PUSH             {LR}
+  240 00000060 4A18            LDR              R2, =0xFFFFFFFF
+  241 00000062 6801            LDR              R1, [R0]
+  242 00000064 4291            CMP              R1, R2
+  243 00000066 D103            BNE              IP_CAL_VERIFY
+  244 00000068 6801            LDR              R1, [R0]
+  245 0000006A 4291            CMP              R1, R2
+  246 0000006C D100            BNE              IP_CAL_VERIFY
+  247 0000006E         
+  248 0000006E E012            B                IP_CAL_EMPTY
+  249 00000070         
+  250 00000070         IP_CAL_VERIFY
+  251 00000070 4D15            LDR              R5, =0x00000003
+  252 00000072 4C16            LDR              R4, =0x000000FF
+  253 00000074         IP_CAL_VERIFY_LOOP
+  254 00000074 000A            MOVS             R2, R1
+  255 00000076 4022            ANDS             R2, R4
+  256 00000078         
+  257 00000078 0A0B            LSRS             R3, R1, #8
+  258 0000007A 4023            ANDS             R3, R4
+  259 0000007C 18D2            ADDS             R2, R3
+  260 0000007E         
+  261 0000007E 0C0B            LSRS             R3, R1, #16
+  262 00000080 4023            ANDS             R3, R4
+  263 00000082 18D2            ADDS             R2, R3
+  264 00000084 4022            ANDS             R2, R4
+  265 00000086         
+  266 00000086 0E0B            LSRS             R3, R1, #24
+  267 00000088         
+  268 00000088 429A            CMP              R2, R3
+  269 0000008A D003            BEQ              IP_LOAD_OK
+  270 0000008C 3D01            SUBS             R5, #1
+  271 0000008E D002            BEQ              IP_CAL_EMPTY
+  272 00000090 6801            LDR              R1, [R0]
+  273 00000092 E7EF            B                IP_CAL_VERIFY_LOOP
+  274 00000094         
+  275 00000094         IP_LOAD_OK
+  276 00000094 6039            STR              R1, [R7]
+  277 00000096         
+  278 00000096         IP_CAL_EMPTY
+  279 00000096 BD00            POP              {PC}
+  280 00000098         
+  281 00000098                 ALIGN
+  282 00000098 40000080 
+              AA559669 
+              00100124 
+
+
+
+ARM Macro Assembler    Page 7 
+
+
+              400000A4 
+              00100128 
+              400000A8 
+              0010012C 
+              4000009C 
+              00100130 
+              400000A0 
+              00000000 
+              FFFFFFFF 
+              00000003 
+              000000FF         LTORG
+  283 000000D0                 ENDP
+  284 000000D0         
+  285 000000D0         
+  286 000000D0                 ALIGN
+  287 000000D0         
+  288 000000D0         ; User Initial Stack & Heap
+  289 000000D0         
+  290 000000D0                 IF               :DEF:__MICROLIB
+  291 000000D0         
+  292 000000D0                 EXPORT           __initial_sp
+  293 000000D0                 EXPORT           __heap_base
+  294 000000D0                 EXPORT           __heap_limit
+  295 000000D0         
+  296 000000D0                 ELSE
+  310                          ENDIF
+  311 000000D0         
+  312 000000D0                 END
+Command Line: --debug --xref --cpu=Cortex-M0 --apcs=interwork --depend=.\output
+\startup_HR8P506.d -o.\output\startup_HR8P506.o -I.\CMSIS -I.\Library\Include -
+I.\Library\Source -IC:\Keil_v4\ARM\RV31\INC -IC:\Keil_v4\ARM\CMSIS\Include -IC:
+\Keil_v4\ARM\Inc\HR --predefine="__MICROLIB SETA 1" --list=.\startup_HR8P506.ls
+t MDK_StartUp\startup_HR8P506.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STACK 00000000
+
+Symbol: STACK
+   Definitions
+      At line 24 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      None
+Comment: STACK unused
+Stack_Mem 00000000
+
+Symbol: Stack_Mem
+   Definitions
+      At line 25 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      None
+Comment: Stack_Mem unused
+__initial_sp 00000400
+
+Symbol: __initial_sp
+   Definitions
+      At line 26 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 48 in file MDK_StartUp\startup_HR8P506.s
+      At line 292 in file MDK_StartUp\startup_HR8P506.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+HEAP 00000000
+
+Symbol: HEAP
+   Definitions
+      At line 35 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      None
+Comment: HEAP unused
+Heap_Mem 00000000
+
+Symbol: Heap_Mem
+   Definitions
+      At line 37 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      None
+Comment: Heap_Mem unused
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 36 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 293 in file MDK_StartUp\startup_HR8P506.s
+Comment: __heap_base used once
+__heap_limit 00000000
+
+Symbol: __heap_limit
+   Definitions
+      At line 38 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 294 in file MDK_StartUp\startup_HR8P506.s
+Comment: __heap_limit used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 45 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 48 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 46 in file MDK_StartUp\startup_HR8P506.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 99 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      None
+Comment: .text unused
+ADC_IRQHandler 00000016
+
+Symbol: ADC_IRQHandler
+   Definitions
+      At line 182 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 85 in file MDK_StartUp\startup_HR8P506.s
+      At line 155 in file MDK_StartUp\startup_HR8P506.s
+
+CCM_IRQHandler 00000016
+
+Symbol: CCM_IRQHandler
+   Definitions
+      At line 191 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 97 in file MDK_StartUp\startup_HR8P506.s
+      At line 164 in file MDK_StartUp\startup_HR8P506.s
+
+Default_IRQHandler 00000016
+
+Symbol: Default_IRQHandler
+   Definitions
+      At line 138 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      None
+Comment: Default_IRQHandler unused
+EUART0_IRQHandler 00000016
+
+Symbol: EUART0_IRQHandler
+   Definitions
+      At line 187 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 91 in file MDK_StartUp\startup_HR8P506.s
+      At line 160 in file MDK_StartUp\startup_HR8P506.s
+
+HardFault_IRQHandler 0000000E
+
+Symbol: HardFault_IRQHandler
+   Definitions
+      At line 121 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 51 in file MDK_StartUp\startup_HR8P506.s
+      At line 122 in file MDK_StartUp\startup_HR8P506.s
+
+I2C0_IRQHandler 00000016
+
+Symbol: I2C0_IRQHandler
+   Definitions
+      At line 190 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 95 in file MDK_StartUp\startup_HR8P506.s
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 163 in file MDK_StartUp\startup_HR8P506.s
+
+IP_CAL_EMPTY 00000096
+
+Symbol: IP_CAL_EMPTY
+   Definitions
+      At line 278 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 248 in file MDK_StartUp\startup_HR8P506.s
+      At line 271 in file MDK_StartUp\startup_HR8P506.s
+
+IP_CAL_LOAD 0000005E
+
+Symbol: IP_CAL_LOAD
+   Definitions
+      At line 238 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 217 in file MDK_StartUp\startup_HR8P506.s
+      At line 221 in file MDK_StartUp\startup_HR8P506.s
+      At line 225 in file MDK_StartUp\startup_HR8P506.s
+      At line 229 in file MDK_StartUp\startup_HR8P506.s
+
+IP_CAL_VERIFY 00000070
+
+Symbol: IP_CAL_VERIFY
+   Definitions
+      At line 250 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 243 in file MDK_StartUp\startup_HR8P506.s
+      At line 246 in file MDK_StartUp\startup_HR8P506.s
+
+IP_CAL_VERIFY_LOOP 00000074
+
+Symbol: IP_CAL_VERIFY_LOOP
+   Definitions
+      At line 253 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 273 in file MDK_StartUp\startup_HR8P506.s
+Comment: IP_CAL_VERIFY_LOOP used once
+IP_LOAD_OK 00000094
+
+Symbol: IP_LOAD_OK
+   Definitions
+      At line 275 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 269 in file MDK_StartUp\startup_HR8P506.s
+Comment: IP_LOAD_OK used once
+KINT_IRQHandler 00000016
+
+Symbol: KINT_IRQHandler
+   Definitions
+      At line 181 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 84 in file MDK_StartUp\startup_HR8P506.s
+      At line 154 in file MDK_StartUp\startup_HR8P506.s
+
+LVD_IRQHandler 00000016
+
+Symbol: LVD_IRQHandler
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 183 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 87 in file MDK_StartUp\startup_HR8P506.s
+      At line 156 in file MDK_StartUp\startup_HR8P506.s
+
+NMI_IRQHandler 0000000C
+
+Symbol: NMI_IRQHandler
+   Definitions
+      At line 117 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 50 in file MDK_StartUp\startup_HR8P506.s
+      At line 118 in file MDK_StartUp\startup_HR8P506.s
+
+PINT0_IRQHandler 00000016
+
+Symbol: PINT0_IRQHandler
+   Definitions
+      At line 166 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 66 in file MDK_StartUp\startup_HR8P506.s
+      At line 139 in file MDK_StartUp\startup_HR8P506.s
+
+PINT1_IRQHandler 00000016
+
+Symbol: PINT1_IRQHandler
+   Definitions
+      At line 167 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 67 in file MDK_StartUp\startup_HR8P506.s
+      At line 140 in file MDK_StartUp\startup_HR8P506.s
+
+PINT2_IRQHandler 00000016
+
+Symbol: PINT2_IRQHandler
+   Definitions
+      At line 168 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 68 in file MDK_StartUp\startup_HR8P506.s
+      At line 141 in file MDK_StartUp\startup_HR8P506.s
+
+PINT3_IRQHandler 00000016
+
+Symbol: PINT3_IRQHandler
+   Definitions
+      At line 169 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 69 in file MDK_StartUp\startup_HR8P506.s
+      At line 142 in file MDK_StartUp\startup_HR8P506.s
+
+PINT4_IRQHandler 00000016
+
+Symbol: PINT4_IRQHandler
+   Definitions
+      At line 170 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 70 in file MDK_StartUp\startup_HR8P506.s
+      At line 143 in file MDK_StartUp\startup_HR8P506.s
+
+
+
+ARM Macro Assembler    Page 4 Alphabetic symbol ordering
+Relocatable symbols
+
+
+PINT5_IRQHandler 00000016
+
+Symbol: PINT5_IRQHandler
+   Definitions
+      At line 171 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 71 in file MDK_StartUp\startup_HR8P506.s
+      At line 144 in file MDK_StartUp\startup_HR8P506.s
+
+PINT6_IRQHandler 00000016
+
+Symbol: PINT6_IRQHandler
+   Definitions
+      At line 172 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 72 in file MDK_StartUp\startup_HR8P506.s
+      At line 145 in file MDK_StartUp\startup_HR8P506.s
+
+PINT7_IRQHandler 00000016
+
+Symbol: PINT7_IRQHandler
+   Definitions
+      At line 173 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 73 in file MDK_StartUp\startup_HR8P506.s
+      At line 146 in file MDK_StartUp\startup_HR8P506.s
+
+PLLLK_IRQHandler 00000016
+
+Symbol: PLLLK_IRQHandler
+   Definitions
+      At line 184 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 88 in file MDK_StartUp\startup_HR8P506.s
+      At line 157 in file MDK_StartUp\startup_HR8P506.s
+
+PendSV_IRQHandler 00000012
+
+Symbol: PendSV_IRQHandler
+   Definitions
+      At line 129 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 62 in file MDK_StartUp\startup_HR8P506.s
+      At line 130 in file MDK_StartUp\startup_HR8P506.s
+
+RTC_IRQHandler 00000016
+
+Symbol: RTC_IRQHandler
+   Definitions
+      At line 180 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 83 in file MDK_StartUp\startup_HR8P506.s
+      At line 153 in file MDK_StartUp\startup_HR8P506.s
+
+RegInit 00000024
+
+Symbol: RegInit
+   Definitions
+
+
+
+ARM Macro Assembler    Page 5 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 203 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 107 in file MDK_StartUp\startup_HR8P506.s
+      At line 201 in file MDK_StartUp\startup_HR8P506.s
+
+Reset_IRQHandler 00000000
+
+Symbol: Reset_IRQHandler
+   Definitions
+      At line 103 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 49 in file MDK_StartUp\startup_HR8P506.s
+      At line 104 in file MDK_StartUp\startup_HR8P506.s
+
+SPI0_IRQHandler 00000016
+
+Symbol: SPI0_IRQHandler
+   Definitions
+      At line 188 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 93 in file MDK_StartUp\startup_HR8P506.s
+      At line 161 in file MDK_StartUp\startup_HR8P506.s
+
+SPI1_IRQHandler 00000016
+
+Symbol: SPI1_IRQHandler
+   Definitions
+      At line 189 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 94 in file MDK_StartUp\startup_HR8P506.s
+      At line 162 in file MDK_StartUp\startup_HR8P506.s
+
+SVC_IRQHandler 00000010
+
+Symbol: SVC_IRQHandler
+   Definitions
+      At line 125 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 59 in file MDK_StartUp\startup_HR8P506.s
+      At line 126 in file MDK_StartUp\startup_HR8P506.s
+
+SysTick_IRQHandler 00000014
+
+Symbol: SysTick_IRQHandler
+   Definitions
+      At line 133 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 63 in file MDK_StartUp\startup_HR8P506.s
+      At line 134 in file MDK_StartUp\startup_HR8P506.s
+
+T16N0_IRQHandler 00000016
+
+Symbol: T16N0_IRQHandler
+   Definitions
+      At line 174 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 74 in file MDK_StartUp\startup_HR8P506.s
+      At line 147 in file MDK_StartUp\startup_HR8P506.s
+
+
+
+
+ARM Macro Assembler    Page 6 Alphabetic symbol ordering
+Relocatable symbols
+
+T16N1_IRQHandler 00000016
+
+Symbol: T16N1_IRQHandler
+   Definitions
+      At line 175 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 75 in file MDK_StartUp\startup_HR8P506.s
+      At line 148 in file MDK_StartUp\startup_HR8P506.s
+
+T16N2_IRQHandler 00000016
+
+Symbol: T16N2_IRQHandler
+   Definitions
+      At line 176 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 76 in file MDK_StartUp\startup_HR8P506.s
+      At line 149 in file MDK_StartUp\startup_HR8P506.s
+
+T16N3_IRQHandler 00000016
+
+Symbol: T16N3_IRQHandler
+   Definitions
+      At line 177 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 77 in file MDK_StartUp\startup_HR8P506.s
+      At line 150 in file MDK_StartUp\startup_HR8P506.s
+
+T32N0_IRQHandler 00000016
+
+Symbol: T32N0_IRQHandler
+   Definitions
+      At line 178 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 78 in file MDK_StartUp\startup_HR8P506.s
+      At line 151 in file MDK_StartUp\startup_HR8P506.s
+
+UART0_IRQHandler 00000016
+
+Symbol: UART0_IRQHandler
+   Definitions
+      At line 185 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 89 in file MDK_StartUp\startup_HR8P506.s
+      At line 158 in file MDK_StartUp\startup_HR8P506.s
+
+UART1_IRQHandler 00000016
+
+Symbol: UART1_IRQHandler
+   Definitions
+      At line 186 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 90 in file MDK_StartUp\startup_HR8P506.s
+      At line 159 in file MDK_StartUp\startup_HR8P506.s
+
+WDT_IRQHandler 00000016
+
+Symbol: WDT_IRQHandler
+   Definitions
+      At line 179 in file MDK_StartUp\startup_HR8P506.s
+
+
+
+ARM Macro Assembler    Page 7 Alphabetic symbol ordering
+Relocatable symbols
+
+   Uses
+      At line 82 in file MDK_StartUp\startup_HR8P506.s
+      At line 152 in file MDK_StartUp\startup_HR8P506.s
+
+40 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+Heap_Size 00000000
+
+Symbol: Heap_Size
+   Definitions
+      At line 33 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 37 in file MDK_StartUp\startup_HR8P506.s
+Comment: Heap_Size used once
+Stack_Size 00000400
+
+Symbol: Stack_Size
+   Definitions
+      At line 22 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 25 in file MDK_StartUp\startup_HR8P506.s
+Comment: Stack_Size used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SystemInit 00000000
+
+Symbol: SystemInit
+   Definitions
+      At line 106 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 109 in file MDK_StartUp\startup_HR8P506.s
+Comment: SystemInit used once
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 105 in file MDK_StartUp\startup_HR8P506.s
+   Uses
+      At line 111 in file MDK_StartUp\startup_HR8P506.s
+Comment: __main used once
+2 symbols
+388 symbols in table

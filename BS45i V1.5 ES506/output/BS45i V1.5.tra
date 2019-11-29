@@ -1,0 +1,60 @@
+*** Creating Trace Output File '.\output\BS45i V1.5.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\output\startup_hr8p506.o"'
+### List of Objects: adding '".\output\system_hr8p506.o"'
+### List of Objects: adding '".\output\hr8p506_iap_table.o"'
+### List of Objects: adding '".\output\lib_adc.o"'
+### List of Objects: adding '".\output\lib_euart.o"'
+### List of Objects: adding '".\output\lib_gpio.o"'
+### List of Objects: adding '".\output\lib_iic.o"'
+### List of Objects: adding '".\output\lib_lcd.o"'
+### List of Objects: adding '".\output\lib_led.o"'
+### List of Objects: adding '".\output\lib_printf.o"'
+### List of Objects: adding '".\output\lib_rtc.o"'
+### List of Objects: adding '".\output\lib_scs.o"'
+### List of Objects: adding '".\output\lib_scu.o"'
+### List of Objects: adding '".\output\lib_spi.o"'
+### List of Objects: adding '".\output\lib_timer.o"'
+### List of Objects: adding '".\output\lib_uart.o"'
+### List of Objects: adding '".\output\lib_wdt.o"'
+### List of Objects: adding '".\output\buzzer.o"'
+### List of Objects: adding '".\output\dcmotordrv.o"'
+### List of Objects: adding '".\output\drv_disp.o"'
+### List of Objects: adding '".\output\filter.o"'
+### List of Objects: adding '".\output\key.o"'
+### List of Objects: adding '".\output\led.o"'
+### List of Objects: adding '".\output\main.o"'
+### List of Objects: adding '".\output\mcudrv.o"'
+### List of Objects: adding '".\output\mode.o"'
+### List of Objects: adding '".\output\pm25.o"'
+### List of Objects: adding '".\output\remote.o"'
+### List of Objects: adding '".\output\rgb.o"'
+### List of Objects: adding '".\output\test.o"'
+### List of Objects: adding '".\output\timer.o"'
+### List of Objects: adding '".\output\wifi.o"'
+### List of Objects: adding '".\output\mcu_api.o"'
+### List of Objects: adding '".\output\protocol.o"'
+### List of Objects: adding '".\output\system.o"'
+### List of Objects: adding '".\output\irqhandler.o"'
+### List of Objects: adding '".\output\disp_air.o"'
+### List of Objects: adding '".\output\i2cdriver.o"'
+### List of Objects: adding '".\output\i2c.o"'
+### List of Objects: adding '".\output\fandrv.o"'
+### List of Objects: adding '".\output\adc.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 ".\output\startup_hr8p506.o" ".\output\system_hr8p506.o" ".\output\hr8p506_iap_table.o" ".\output\lib_adc.o" ".\output\lib_euart.o" ".\output\lib_gpio.o" ".\output\lib_iic.o" ".\output\lib_lcd.o" ".\output\lib_led.o" ".\output\lib_printf.o" ".\output\lib_rtc.o" ".\output\lib_scs.o" ".\output\lib_scu.o" ".\output\lib_spi.o" ".\output\lib_timer.o" ".\output\lib_uart.o" ".\output\lib_wdt.o" ".\output\buzzer.o" ".\output\dcmotordrv.o" ".\output\drv_disp.o" ".\output\filter.o" ".\output\key.o" ".\output\led.o" ".\output\main.o" ".\output\mcudrv.o" ".\output\mode.o" ".\output\pm25.o" ".\output\remote.o" ".\output\rgb.o" ".\output\test.o" ".\output\timer.o" ".\output\wifi.o" ".\output\mcu_api.o" ".\output\protocol.o" ".\output\system.o" ".\output\irqhandler.o" ".\output\disp_air.o" ".\output\i2cdriver.o" ".\output\i2c.o" ".\output\fandrv.o" ".\output\adc.o" 
+--library_type=microlib --strict --scatter ".\output\BS45i V1.5.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\BS45i V1.map" -o ".\output\BS45i V1.5.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\output\BS45i V1.5.axf'
+### ADS-LD Command File: '.\output\BS45i V1.5.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\output\BS45i V1.5.lnp', Handle=0x00000680
+### Writing '.lnp' file
+### ADS-LD Command file '.\output\BS45i V1.5.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

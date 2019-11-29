@@ -1,0 +1,55 @@
+*** Creating Trace Output File '..\..\output\AirBox.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"..\..\output\startup_hr8p506.o"'
+### List of Objects: adding '"..\..\output\system_hr8p506.o"'
+### List of Objects: adding '"..\..\output\lib_euart.o"'
+### List of Objects: adding '"..\..\output\lib_gpio.o"'
+### List of Objects: adding '"..\..\output\lib_led.o"'
+### List of Objects: adding '"..\..\output\lib_scs.o"'
+### List of Objects: adding '"..\..\output\lib_scu.o"'
+### List of Objects: adding '"..\..\output\lib_timer.o"'
+### List of Objects: adding '"..\..\output\lib_uart.o"'
+### List of Objects: adding '"..\..\output\lib_wdt.o"'
+### List of Objects: adding '"..\..\output\hr8p506_iap_table.o"'
+### List of Objects: adding '"..\..\output\lib_adc.o"'
+### List of Objects: adding '"..\..\output\lib_iic.o"'
+### List of Objects: adding '"..\..\output\lib_lcd.o"'
+### List of Objects: adding '"..\..\output\lib_printf.o"'
+### List of Objects: adding '"..\..\output\lib_rtc.o"'
+### List of Objects: adding '"..\..\output\lib_spi.o"'
+### List of Objects: adding '"..\..\output\ch2o.o"'
+### List of Objects: adding '"..\..\output\irqhandler.o"'
+### List of Objects: adding '"..\..\output\key.o"'
+### List of Objects: adding '"..\..\output\main.o"'
+### List of Objects: adding '"..\..\output\pm25.o"'
+### List of Objects: adding '"..\..\output\psc2725.o"'
+### List of Objects: adding '"..\..\output\timer.o"'
+### List of Objects: adding '"..\..\output\uart0.o"'
+### List of Objects: adding '"..\..\output\uart1.o"'
+### List of Objects: adding '"..\..\output\test.o"'
+### List of Objects: adding '"..\..\output\eg2805.o"'
+### List of Objects: adding '"..\..\output\bluetooth.o"'
+### List of Objects: adding '"..\..\output\log.o"'
+### List of Objects: adding '"..\..\output\euart.o"'
+### List of Objects: adding '"..\..\output\voice.o"'
+### List of Objects: adding '"..\..\output\ledtm1680.o"'
+### List of Objects: adding '"..\..\output\ee.o"'
+### List of Objects: adding '"..\..\output\commiic.o"'
+### List of Objects: adding '"..\..\output\tempandhumi.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 "..\..\output\startup_hr8p506.o" "..\..\output\system_hr8p506.o" "..\..\output\lib_euart.o" "..\..\output\lib_gpio.o" "..\..\output\lib_led.o" "..\..\output\lib_scs.o" "..\..\output\lib_scu.o" "..\..\output\lib_timer.o" "..\..\output\lib_uart.o" "..\..\output\lib_wdt.o" "..\..\output\hr8p506_iap_table.o" "..\..\output\lib_adc.o" "..\..\output\lib_iic.o" "..\..\output\lib_lcd.o" "..\..\output\lib_printf.o" "..\..\output\lib_rtc.o" "..\..\output\lib_spi.o" "..\..\output\ch2o.o" "..\..\output\irqhandler.o" "..\..\output\key.o" "..\..\output\main.o" "..\..\output\pm25.o" "..\..\output\psc2725.o" "..\..\output\timer.o" "..\..\output\uart0.o" "..\..\output\uart1.o" "..\..\output\test.o" "..\..\output\eg2805.o" "..\..\output\bluetooth.o" "..\..\output\log.o" "..\..\output\euart.o" "..\..\output\voice.o" "..\..\output\ledtm1680.o" "..\..\output\ee.o" "..\..\output\commiic.o" "..\..\output\tempandhumi.o" 
+--library_type=microlib --strict --scatter "..\..\output\AirBox.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list "..\Obj\AirBox.map" -o ..\..\output\AirBox.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '..\..\output\AirBox.axf'
+### ADS-LD Command File: '..\..\output\AirBox.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '..\..\output\AirBox.lnp', Handle=0x0000084C
+### Writing '.lnp' file
+### ADS-LD Command file '..\..\output\AirBox.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

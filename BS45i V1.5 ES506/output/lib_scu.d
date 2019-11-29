@@ -1,0 +1,9 @@
+.\output\lib_scu.o: Library\Source\lib_scu.c
+.\output\lib_scu.o: .\Library\Include\lib_scu.h
+.\output\lib_scu.o: .\CMSIS\HR8P506.h
+.\output\lib_scu.o: .\CMSIS\core_cm0.h
+.\output\lib_scu.o: C:\Keil_v4\ARM\ARMCC\bin\..\include\stdint.h
+.\output\lib_scu.o: .\CMSIS\core_cmInstr.h
+.\output\lib_scu.o: .\CMSIS\core_cmFunc.h
+.\output\lib_scu.o: .\Library\Include\lib_gpio.h
+.\output\lib_scu.o: .\Library\Include\type.h
