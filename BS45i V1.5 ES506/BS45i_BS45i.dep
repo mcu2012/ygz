@@ -381,7 +381,7 @@ I (SRC\mcu_sdk\system.h)(0x5DD60B0B)
 I (SRC\mcu_sdk\mcu_api.h)(0x5DD5FE02)
 I (SRC\I2C.h)(0x536F2ABA)
 I (SRC\mywifi.h)(0x5DD666F3)
-F (.\SRC\main.c)(0x5DD7A230)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I.\MDK_StartUp -I.\Library\Include -I.\CMSIS -I.\SRC --bitband -I C:\Keil_v4\ARM\RV31\INC -I C:\Keil_v4\ARM\CMSIS\Include -I C:\Keil_v4\ARM\Inc\HR -o ".\output\main.o" --omf_browse ".\output\main.crf" --depend ".\output\main.d")
+F (.\SRC\main.c)(0x5DE1C147)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I.\MDK_StartUp -I.\Library\Include -I.\CMSIS -I.\SRC --bitband -I C:\Keil_v4\ARM\RV31\INC -I C:\Keil_v4\ARM\CMSIS\Include -I C:\Keil_v4\ARM\Inc\HR -o ".\output\main.o" --omf_browse ".\output\main.crf" --depend ".\output\main.d")
 I (SRC\includes.h)(0x5DD7A019)
 I (.\Library\Include\lib_config.h)(0x5A1F6C0C)
 I (.\Library\Include\lib_adc.h)(0x5AB9AFB2)

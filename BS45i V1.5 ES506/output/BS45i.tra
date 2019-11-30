@@ -50,7 +50,7 @@
 ### ADS-LD Output File: '.\output\BS45i.axf'
 ### ADS-LD Command File: '.\output\BS45i.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\output\BS45i.lnp', Handle=0x00000720
+### Creating CmdFile '.\output\BS45i.lnp', Handle=0x00000860
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\output\BS45i.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
