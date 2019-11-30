@@ -1,6 +1,6 @@
 #define MAIN_GLOBALS_H
 #include "includes.h"
-//001
+//002
 extern void delay_RGB ( unsigned int dly );
 
 //用到的外设使能.
